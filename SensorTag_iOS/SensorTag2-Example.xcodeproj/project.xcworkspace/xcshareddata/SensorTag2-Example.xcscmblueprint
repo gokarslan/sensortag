@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F3FCB76CE255274586D88A3968071EDEA55108CF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "80A040416107829698890A38A4D194EE192DE4A0" : 0,
+    "F3FCB76CE255274586D88A3968071EDEA55108CF" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B96C70DE-794A-433B-B080-EA9BFEFD9BB8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "80A040416107829698890A38A4D194EE192DE4A0" : "sensortag-ios-source-code-example\/SensorTag_iOS\/MQTT\/MQTTKit\/",
+    "F3FCB76CE255274586D88A3968071EDEA55108CF" : "sensortag-ios-source-code-example\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SensorTag2-Example",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SensorTag_iOS\/SensorTag2-Example.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jmesnil\/MQTTKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "80A040416107829698890A38A4D194EE192DE4A0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/git.ti.com\/sensortag-ios-source-code-example\/sensortag-ios-source-code-example.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F3FCB76CE255274586D88A3968071EDEA55108CF"
+    }
+  ]
+}

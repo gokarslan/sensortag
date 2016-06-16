@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20E911051D113FB90037D788 /* rssiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E911041D113FB90037D788 /* rssiService.m */; };
 		7F5E74BB1B8CB5E000E378EA /* MQTTIBMQuickStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E74BA1B8CB5E000E378EA /* MQTTIBMQuickStart.m */; };
 		7F5E74C71B8CB72A00E378EA /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5E74C21B8CB71C00E378EA /* libMQTTKit.a */; };
 		7F77A0BD1B8C70C7004AD5E4 /* deviceInformationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F77A0BC1B8C70C7004AD5E4 /* deviceInformationService.m */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20E911041D113FB90037D788 /* rssiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rssiService.m; sourceTree = "<group>"; };
+		20E911071D1140550037D788 /* rssiService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rssiService.h; sourceTree = "<group>"; };
 		7F5E74B91B8CB5E000E378EA /* MQTTIBMQuickStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTIBMQuickStart.h; sourceTree = "<group>"; };
 		7F5E74BA1B8CB5E000E378EA /* MQTTIBMQuickStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTIBMQuickStart.m; sourceTree = "<group>"; };
 		7F5E74BC1B8CB71C00E378EA /* MQTTKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MQTTKit.xcodeproj; path = MQTT/MQTTKit/MQTTKit.xcodeproj; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				7F7EBC4D1B8B3F85004DF353 /* sensorTagHumidityService.m */,
 				7F7EBC4F1B8B493D004DF353 /* sensorTagMovementService.h */,
 				7F7EBC501B8B493D004DF353 /* sensorTagMovementService.m */,
+				20E911041D113FB90037D788 /* rssiService.m */,
+				20E911071D1140550037D788 /* rssiService.h */,
 			);
 			name = "Bluetooth Services";
 			sourceTree = "<group>";
@@ -259,7 +264,7 @@
 				TargetAttributes = {
 					7F7EF3ED1B835DE4008C8749 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = V63Z98ZJ88;
+						DevelopmentTeam = F2W749P7A3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -330,6 +335,7 @@
 				7F7EF4311B84B72F008C8749 /* oneValueCell.m in Sources */,
 				7F7EF3FA1B835DE4008C8749 /* ViewController.m in Sources */,
 				7F7EF42A1B84797A008C8749 /* DeviceSelectTableViewController.m in Sources */,
+				20E911051D113FB90037D788 /* rssiService.m in Sources */,
 				7F7EF42D1B84A2CD008C8749 /* displayTile.m in Sources */,
 				7FFBBF3E1B8B68080080F16C /* sensorTagLightService.m in Sources */,
 				7F7EBC511B8B493D004DF353 /* sensorTagMovementService.m in Sources */,

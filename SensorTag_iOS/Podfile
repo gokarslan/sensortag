@@ -1,0 +1,6 @@
+project 'SensorTag2-Example.xcodeproj'
+target 'SensorTag2-Example' do
+	pod 'MQTTKit', :git => 'https://github.com/mobile-web-messaging/MQTTKit.git'
+end
+platform :ios, '7.0'
+

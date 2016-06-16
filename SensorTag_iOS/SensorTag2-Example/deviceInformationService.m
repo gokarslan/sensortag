@@ -78,7 +78,7 @@
         self.service = service;
         
         self.tile.origin = CGPointMake(0, 9);
-        self.tile.size = CGSizeMake(8, 4);
+        self.tile.size = CGSizeMake(4, 4);
         self.tile.title.text = @"Device Information Service";
         ((oneValueCell *) self.tile).value.numberOfLines = 10;
         ((oneValueCell *) self.tile).value.textAlignment = NSTextAlignmentLeft;

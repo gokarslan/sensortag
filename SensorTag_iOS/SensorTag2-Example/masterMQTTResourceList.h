@@ -88,6 +88,9 @@
 #define MQTT_RESOURCE_NAME_RSSI_LEVEL           @"rssi"
 #define MQTT_RESOURCE_NAME_INTERNAL_TEMPERATURE @"cputemp"
 
+#define MQTT_RESOURCE_NAME_RSSI                 @"rssi" /*KerimGokarslan*/
+#define MQTT_RESOURCE_NAME_DISTANCE             @"distance" /*KerimGokarslan*/
+
 
 
 #endif

@@ -64,6 +64,7 @@
 #import "sensorTagLightService.h"
 #import "sensorTagKeyService.h"
 #import "deviceInformationService.h"
+#import "rssiService.h"
 
 #import "MQTTIBMQuickStart.h"
 
@@ -203,6 +204,17 @@
         self.aV = [[siOleAlertView alloc] initInView:self.view];
         [self.aV blinkMessage:@"Disconnected !"];
     }
+    /* Displaying RSSI value, @kerimgokarslan */
+    rssiService *serv =[[rssiService alloc]initWithService:nil];
+    [self.services addObject:serv];
+    [serv configureService];
+    displayTile *t = [serv getViewForPresentation];
+    [t setFrame:self.view.frame];
+    t.title.text = t.title.text;
+    [self.displayTiles addObject:t];
+    [self.view addSubview:t];
+    
+    
 }
 
 -(void) didReadCharacteristic:(CBCharacteristic *)characteristic {
