@@ -85,6 +85,8 @@
         self.lower = NSIntegerMin;
         self.upper = NSIntegerMax;
         self.historyIndex = 0;
+        self.pasteBoard = [UIPasteboard generalPasteboard];
+        self.pasteBoard.string =(NSString*) @" ";
     }
     return self;
 }
@@ -138,8 +140,9 @@
     for(NSInteger i = 0;i< [self.history count];++i){
         sumRssi += ((NSNumber*)self.history[i]).doubleValue;
     }
+   // self.pasteBoard.string = [self.pasteBoard.string stringByAppendingString:[NSString stringWithFormat: @"%d,", -1 * self.rssiNum.intValue]];
     self.dist = pow(10.0, (A-(sumRssi/HISTORY_COUNT))/(10 * N));
-    return [NSString stringWithFormat:@"%d dBm (%lf m) ",self.rssiNum.intValue, self.dist];
+    return [NSString stringWithFormat:@"%d dBm (%lf m)",self.rssiNum.intValue, self.dist];
 }
 
 @end

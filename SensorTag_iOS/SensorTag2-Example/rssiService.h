@@ -71,6 +71,9 @@
 @property NSInteger historyIndex;
 @property NSInteger lower, upper;
 @property double dist;
+@property UIPasteboard* pasteBoard;
+
+
 
 @end
 
