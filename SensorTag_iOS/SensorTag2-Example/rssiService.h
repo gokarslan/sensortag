@@ -58,7 +58,7 @@
 #define rssiService_h
 #define N 4.21
 #define A -55
-#define HISTORY_COUNT 200
+#define HISTORY_COUNT 100
 #import "bleGenericService.h"
 #import "bluetoothHandler.h"
 
@@ -72,6 +72,9 @@
 @property NSInteger lower, upper;
 @property double dist;
 @property UIPasteboard* pasteBoard;
+
+@property NSInteger cc;
+@property double dist1;
 
 
 

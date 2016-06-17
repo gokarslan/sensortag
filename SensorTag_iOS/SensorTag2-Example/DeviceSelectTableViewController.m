@@ -76,7 +76,7 @@
     [d registerDefaults:standard];
     [d synchronize];
     self.currentlySelectedDeviceIdentifier = [[NSUUID alloc] initWithUUIDString:[d objectForKey:@"selectedDevice"]];
-    NSLog(@"Loaded selectedDevice : %@",self.currentlySelectedDeviceIdentifier.UUIDString);
+    //NSLog(@"Loaded selectedDevice : %@",self.currentlySelectedDeviceIdentifier.UUIDString);
 
     self.title = @"Please select BLE device";
 }

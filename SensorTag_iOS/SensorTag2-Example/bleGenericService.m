@@ -86,7 +86,7 @@
     return nil;
 }
 -(BOOL) dataUpdate:(CBCharacteristic *)c {
-    NSLog(@"Data update : %@",c.value);
+    //NSLog(@"Data update : %@",c.value);
     return YES;
 }
 
@@ -122,10 +122,10 @@
 
 -(void) wroteValue:(CBCharacteristic *)c error:(NSError *)error {
     if (error) {
-        NSLog(@"Write failed to %@ with error:%@",c.UUID.UUIDString,error);
+        //NSLog(@"Write failed to %@ with error:%@",c.UUID.UUIDString,error);
     }
     else {
-        NSLog(@"Wrote %@",c.UUID);
+        //NSLog(@"Wrote %@",c.UUID);
     }
 }
 -(NSString *) calcValue:(NSData *) value {

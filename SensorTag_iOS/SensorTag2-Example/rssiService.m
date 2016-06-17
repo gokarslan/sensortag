@@ -87,6 +87,8 @@
         self.historyIndex = 0;
         self.pasteBoard = [UIPasteboard generalPasteboard];
         self.pasteBoard.string =(NSString*) @" ";
+        self.cc =0;
+        self.dist1 = 0;
     }
     return self;
 }
@@ -98,7 +100,7 @@
 
 -(BOOL) dataUpdate:(CBCharacteristic *)c {
     //if ([self.data isEqual:c]) {
-        NSLog(@"RSSI: Recieved value : %@",c.value);
+        //NSLog(@"RSSI: Recieved value : %@",c.value);
         oneValueCell *tile = (oneValueCell *)self.tile;
         //tile.value.numberOfLines = 2;
         tile.value.text = [NSString stringWithFormat:@"%@",[self calcValue:c.value]];
@@ -136,13 +138,40 @@
             self.historyIndex = 0;
         }
     }
+    /*self.dist1 += self.rssiNum.doubleValue;
+    self.cc++;*/
     double sumRssi = 0;
     for(NSInteger i = 0;i< [self.history count];++i){
         sumRssi += ((NSNumber*)self.history[i]).doubleValue;
     }
-   // self.pasteBoard.string = [self.pasteBoard.string stringByAppendingString:[NSString stringWithFormat: @"%d,", -1 * self.rssiNum.intValue]];
+    /*self.pasteBoard.string = [self.pasteBoard.string stringByAppendingString:[NSString stringWithFormat: @"%d,", -1 * self.rssiNum.intValue]];*/
+    double ratio = (sumRssi/HISTORY_COUNT)/A;
+    double accuracy = 0.0;
+    if(ratio < 1.0){
+        accuracy = pow(ratio, 10);
+    }else{
+        accuracy = (0.89976)*pow(ratio, 7.7095)+0.111;
+    }
+    NSLog(@"%2d, ",self.rssiNum.intValue);
     self.dist = pow(10.0, (A-(sumRssi/HISTORY_COUNT))/(10 * N));
-    return [NSString stringWithFormat:@"%d dBm (%lf m)",self.rssiNum.intValue, self.dist];
+    /*if(self.cc == 20){
+        self.dist = pow(10.0, (A-(self.dist1/self.cc))/(10 * N));
+        self.dist1 = 0;
+        self.cc = 0;
+    
+    }*/
+    //return [NSString stringWithFormat:@"%d dBm (%lf m)",self.rssiNum.intValue, self.dist];
+    NSString* proximity;
+    if(accuracy<0){
+        proximity = @"UNK";
+    }else if(accuracy<0.5){
+        proximity = @"IMM";
+    }else if(accuracy<=4.0){
+        proximity = @"NEAR";
+    }else{
+        proximity = @"FAR";
+    }
+    return [NSString stringWithFormat:@"%@ %lf",proximity,accuracy];
 }
 
 @end

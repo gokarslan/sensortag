@@ -87,7 +87,7 @@
             }
         }
         if (!(self.config && self.data && self.period)) {
-            NSLog(@"Some characteristics are missing from this service, might not work correctly !");
+            //NSLog(@"Some characteristics are missing from this service, might not work correctly !");
         }
         
         self.tile.origin = CGPointMake(0, 1);
@@ -99,7 +99,7 @@
 
 -(BOOL) dataUpdate:(CBCharacteristic *)c {
     if ([self.data isEqual:c]) {
-        NSLog(@"sensorTagAmbientTemperatureService: Recieved value : %@",c.value);
+        //NSLog(@"sensorTagAmbientTemperatureService: Recieved value : %@",c.value);
         oneValueCell *tile = (oneValueCell *)self.tile;
         tile.value.text = [NSString stringWithFormat:@"%@",[self calcValue:c.value]];
         return YES;

@@ -135,14 +135,14 @@
     if (characteristic) {
         if (self.p) {
             [self.p writeValue:value forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
-            NSLog(@"bluetoothHandler: Writing %@, with data %@",characteristic.UUID.UUIDString,value);
+            //NSLog(@"bluetoothHandler: Writing %@, with data %@",characteristic.UUID.UUIDString,value);
         }
         else {
-            NSLog(@"bluetoothHandler: Cannot write when peripheral == nil");
+            //NSLog(@"bluetoothHandler: Cannot write when peripheral == nil");
         }
     }
     else {
-        NSLog(@"bluetoothHandler: Cannot write to characterstic == nil");
+        //NSLog(@"bluetoothHandler: Cannot write to characterstic == nil");
     }
 }
 ///@param characteristic - Characteristic to read from.
@@ -150,14 +150,14 @@
     if (characteristic) {
         if (self.p) {
             [self.p readValueForCharacteristic:characteristic];
-            NSLog(@"bluetoothHandler: Reading %@",characteristic.UUID.UUIDString);
+            //NSLog(@"bluetoothHandler: Reading %@",characteristic.UUID.UUIDString);
         }
         else {
-            NSLog(@"bluetoothHandler: Cannot read when peripheral == nil");
+            //NSLog(@"bluetoothHandler: Cannot read when peripheral == nil");
         }
     }
     else {
-        NSLog(@"bluetoothHandler: Cannot read from characteristic == nil");
+        //NSLog(@"bluetoothHandler: Cannot read from characteristic == nil");
     }
 }
 ///@param characteristic - Characteristic to control.
@@ -166,14 +166,14 @@
     if (characteristic) {
         if (self.p) {
             [self.p setNotifyValue:enable forCharacteristic:characteristic];
-            NSLog(@"bluetoothHandler: Setting notify value on %@ to %ld",characteristic.UUID.UUIDString,(long)enable);
+            //NSLog(@"bluetoothHandler: Setting notify value on %@ to %ld",characteristic.UUID.UUIDString,(long)enable);
         }
         else {
-            NSLog(@"bluetoothHandler: Cannot set notify when peripheral == nil");
+            //NSLog(@"bluetoothHandler: Cannot set notify when peripheral == nil");
         }
     }
     else {
-        NSLog(@"bluetoothHandler: Cannot set notify from characteristic == nil");
+        //NSLog(@"bluetoothHandler: Cannot set notify from characteristic == nil");
     }
 }
 
@@ -195,7 +195,7 @@
 /// peripheral it has not seen before (only once since we have not sent
 /// any flags to the scanForPeripheralsWithServices options parameter)
 -(void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"bluetoothHandler: Found peripheral with UUID : %@ and Name : %@ (%ld dBm)",peripheral.identifier,peripheral.name,(long)[RSSI integerValue]);
+    //NSLog(@"bluetoothHandler: Found peripheral with UUID : %@ and Name : %@ (%ld dBm)",peripheral.identifier,peripheral.name,(long)[RSSI integerValue]);
     if (!self.deviceList) {
         self.deviceList = [[NSMutableArray alloc] init];
     }
@@ -212,7 +212,7 @@
 /// peripheral after the connectToPeripheral call, here we start scanning of
 /// services automatically
 -(void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"bluetoothHandler: Connected to peripheral with UUID : %@",peripheral.identifier);
+    //NSLog(@"bluetoothHandler: Connected to peripheral with UUID : %@",peripheral.identifier);
     //Store peripheral
     self.p = peripheral;
     //Set delegate to us
@@ -227,7 +227,7 @@
 ///before the device actually is disconnected, and it may take up to 10
 ///seconds before device is actually disconnected
 -(void) centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"bluetoothHandler: Disconnected from peripheral with UUID : %@",peripheral.identifier);
+    //NSLog(@"bluetoothHandler: Disconnected from peripheral with UUID : %@",peripheral.identifier);
     [self.delegate deviceReady:NO peripheral:self.p];
     self.p = nil;
     self.p.delegate = nil;
@@ -241,17 +241,17 @@
     //Scan all characteristics in all services on device
     for (CBService *s in self.p.services) {
         [self.p discoverCharacteristics:nil forService:s];
-        NSLog(@"bluetoothHandler: Discovered service with UUID : %@",s.UUID.UUIDString);
+        //NSLog(@"bluetoothHandler: Discovered service with UUID : %@",s.UUID.UUIDString);
     }
 }
 ///This delegate method is called when iOS has discovered characteristics on a service. Characteristics are an array on the peripheral service class
 -(void) peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     for (CBCharacteristic *c in service.characteristics) {
-        NSLog(@"bluetoothHandler: Discovered characteristics with UUID %@ under service with UUID : %@",c.UUID.UUIDString,service.UUID.UUIDString);
+        //NSLog(@"bluetoothHandler: Discovered characteristics with UUID %@ under service with UUID : %@",c.UUID.UUIDString,service.UUID.UUIDString);
     }
     //Check if we are finished scanning all services
     if ([service isEqual: [self.p.services objectAtIndex:self.p.services.count -1]]) {
-        NSLog(@"bluetoothHandler: Device is ready for use");
+        //NSLog(@"bluetoothHandler: Device is ready for use");
         [self.delegate deviceReady:YES peripheral:self.p];
     }
 }
@@ -262,7 +262,7 @@
         [self.delegate didGetNotificaitonOnCharacteristic:characteristic];
     }
     else {
-        NSLog(@"bluetoothHandler: error in didUpdateValueForCharacteristic : %@",error.description);
+        //NSLog(@"bluetoothHandler: error in didUpdateValueForCharacteristic : %@",error.description);
     }
 }
 

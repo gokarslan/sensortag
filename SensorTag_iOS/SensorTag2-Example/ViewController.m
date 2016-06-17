@@ -279,7 +279,7 @@
     }
     self.displayTiles = [[NSMutableArray alloc] init];
     self.services = [[NSMutableArray alloc] init];
-    NSLog(@"Cloud identifier for this device : %@",[MQTTIBMQuickStart cloudIdentifierFromUUID:identifier]);
+    //NSLog(@"Cloud identifier for this device : %@",[MQTTIBMQuickStart cloudIdentifierFromUUID:identifier]);
 }
 
 
@@ -289,7 +289,7 @@
     if (self.MQTTStringTX.length > 2) {
         self.MQTTStringTX = [self.MQTTStringTX substringToIndex:self.MQTTStringTX.length - 2];
     }
-    NSLog(@"Posting : %@",self.MQTTStringTX);
+    //NSLog(@"Posting : %@",self.MQTTStringTX);
     [self.cloudHandle publishSensorStrings:self.MQTTStringTX];
     if (self.cloudLinkButton.hidden) self.cloudLinkButton.hidden = NO;
 }

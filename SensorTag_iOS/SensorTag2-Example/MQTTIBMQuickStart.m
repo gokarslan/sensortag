@@ -88,12 +88,12 @@
     NSString *mqttClientID = [NSString stringWithFormat:@"d:quickstart:\"SensorTag2-Example-app\":%@",clientId];
     self.client = [[MQTTClient alloc]initWithClientId:mqttClientID];
     [self.client connectToHost:@"quickstart.messaging.internetofthings.ibmcloud.com" completionHandler:^(MQTTConnectionReturnCode er) {
-        NSLog(@"MQTTClient connectToHost : %lu",(unsigned long)er);
+        //NSLog(@"MQTTClient connectToHost : %lu",(unsigned long)er);
         if (er ==  ConnectionAccepted) {
             self.isConnected = YES;
-            NSLog(@"MQTT: Publishing");
+            //NSLog(@"MQTT: Publishing");
             NSString *publish = [NSString stringWithFormat:@"%@%@%@",START_STRING,VARIABLE_STRING(@"myName", name),STOP_STRING];
-            //NSLog(@"Publishing : %@",publish);
+            ////NSLog(@"Publishing : %@",publish);
             [self.client publishString:publish
                                toTopic:@"iot-2/evt/status/fmt/json"
                                withQos: AtMostOnce
@@ -106,7 +106,7 @@
 }
 ///Disconnect from MQTT broker
 -(void) disconnect {
-    NSLog(@"MQTTIBMQuickStart: Disconnect");
+    //NSLog(@"MQTTIBMQuickStart: Disconnect");
     [self.client disconnectWithCompletionHandler:nil];
     self.isConnected = NO;
 }
@@ -122,7 +122,7 @@
 -(void)publishSensorStrings:(NSString *)string {
     NSString *publish = [NSString stringWithFormat:@"%@%@%@",START_STRING,string,STOP_STRING];
     if (self.client.connected) {
-    //NSLog(@"Publishing : %@",publish);
+    ////NSLog(@"Publishing : %@",publish);
     [self.client publishString:publish
                        toTopic:@"iot-2/evt/status/fmt/json"
                        withQos: AtMostOnce
@@ -132,7 +132,7 @@
              }];
     }
     else {
-        NSLog(@"Not connected anymore, please reconnect !");
+        //NSLog(@"Not connected anymore, please reconnect !");
         self.isConnected = NO;
     }
 }
@@ -142,7 +142,7 @@
 -(void)publishSensor: (NSString *)name value:(NSNumber *)value {
     NSString *publish = [NSString stringWithFormat:@"%@%@%@",START_STRING,VARIABLE_STRING(name, [value stringValue]),STOP_STRING];
     if (self.client.connected) {
-    //NSLog(@"Publishing : %@",publish);
+    ////NSLog(@"Publishing : %@",publish);
         [self.client publishString:publish
                            toTopic:@"iot-2/evt/status/fmt/json"
                            withQos: AtMostOnce
@@ -152,7 +152,7 @@
                  }];
     }
     else {
-        NSLog(@"Not connected anymore, please reconnect !");
+        //NSLog(@"Not connected anymore, please reconnect !");
         self.isConnected = NO;
     }
 }

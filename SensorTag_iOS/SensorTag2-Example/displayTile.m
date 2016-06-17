@@ -106,7 +106,7 @@
     self.tileSize = (frame.size.width) / 8;
     if ((self.tileSize * 13) > frame.size.height) self.tileSize = (frame.size.height - 40) / 13;
     self.tileXOffset = (frame.size.width - (self.tileSize * 8)) / 2;
-    NSLog(@"TileSize :%0.1f",self.tileSize);
+    //NSLog(@"TileSize :%0.1f",self.tileSize);
     [super setFrame:CGRectMake((self.origin.x * self.tileSize + 3.0f) + self.tileXOffset, self.origin.y * self.tileSize + 3.0f, self.size.width * self.tileSize - 6.0f, self.size.height * self.tileSize - 6.0f)];
     self.title.frame = CGRectMake(8, 2, (self.size.width * self.tileSize) - 6.0 - 8, 30 - 4);
 }
